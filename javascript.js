@@ -16,11 +16,10 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let choice = prompt();
-    // Make user input case-insensitive by converting it to lowercase and then capitalizing the first letter
+    // Make user input case-insensitive by capitalizing the first letter and then making the rest lowercase
     choice = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
     return choice;
 } 
-
 
 let computerScore = 0;
 let humanScore = 0;

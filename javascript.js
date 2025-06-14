@@ -44,3 +44,15 @@ function playRound(computerSelection, humanSelection) {
     }
 }
 
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound(getComputerChoice(), getHumanChoice()));
+    }
+}
+
+playGame();
+console.log(`Final scores: Computer: ${computerScore}, Human: ${humanScore}`);
+console.log("Game Over");
+console.log("Thanks for playing!");
+console.log("Please refresh the page to play again.");

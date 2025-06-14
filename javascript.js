@@ -16,6 +16,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let choice = prompt();
+    // Make user input case-insensitive by converting it to lowercase and then capitalizing the first letter
     choice = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
     return choice;
 } 
@@ -56,3 +57,4 @@ console.log(`Final scores: Computer: ${computerScore}, Human: ${humanScore}`);
 console.log("Game Over");
 console.log("Thanks for playing!");
 console.log("Please refresh the page to play again.");
+

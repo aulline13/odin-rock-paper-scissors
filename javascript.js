@@ -4,6 +4,7 @@ const scissors = "Scissors";
 const userSelectionButtons = document.querySelectorAll(".user-selection-button");
 console.log(userSelectionButtons);
 
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 100);
     console.log(randomNumber);
@@ -46,6 +47,13 @@ function playRound(computerSelection, humanSelection) {
     }
 }
 
+userSelectionButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const humanChoice = button.textContent;
+        const computerChoice = getComputerChoice();
+        console.log(playRound(computerChoice, humanChoice));
+    });
+});
 
 function playGame() {
     // for (let i = 0; i < 5; i++) {

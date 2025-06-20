@@ -2,12 +2,14 @@ const rock = "Rock";
 const paper = "Paper";
 const scissors = "Scissors";
 const userSelectionButtons = document.querySelectorAll(".user-selection-button");
+const resultDisplay = document.querySelector(".result-display");
 console.log(userSelectionButtons);
 
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 100);
-    console.log(randomNumber);
+    resultDisplay.appendChild(document.createElement("hr"));
+    resultDisplay.appendChild(document.createElement("p")).textContent = `Random number generated: ${randomNumber}`;
     if (randomNumber < 33) {
         return rock;
     } else if (randomNumber < 66) {
@@ -30,20 +32,23 @@ let humanScore = 0;
 function playRound(computerSelection, humanSelection) {
     let computerChoice = computerSelection;
     let humanChoice = humanSelection;
-    console.log(computerChoice);
-    console.log(humanChoice);
+    resultDisplay.appendChild(document.createElement("p")).textContent = `Computer chose: ${computerChoice}`;
+    resultDisplay.appendChild(document.createElement("p")).textContent = `Human chose: ${humanChoice}`;
     if (computerChoice === humanChoice) {
-        return `It's a tie! Current scores: Computer: ${computerScore}, Human: ${humanScore}`;
+        resultDisplay.appendChild(document.createElement("p")).textContent = `It's a tie! Current scores: Computer: ${computerScore}, Human: ${humanScore}`;
+        resultDisplay.appendChild(document.createElement("hr"));
     } else if (
         (computerChoice === rock && humanChoice === scissors) ||
         (computerChoice === paper && humanChoice === rock) ||
         (computerChoice === scissors && humanChoice === paper)
     ) {
         ++computerScore;
-        return `You lose! ${computerChoice} beats ${humanChoice}. Current scores: Computer: ${computerScore}, Human: ${humanScore}`;
+        resultDisplay.appendChild(document.createElement("p")).textContent = `You lose! ${computerChoice} beats ${humanChoice}. Current scores: Computer: ${computerScore}, Human: ${humanScore}`;
+        resultDisplay.appendChild(document.createElement("hr"));
     } else {
         ++humanScore;
-        return `You win! ${humanChoice} beats ${computerChoice}. Current scores: Computer: ${computerScore}, Human: ${humanScore}`;
+        resultDisplay.appendChild(document.createElement("p")).textContent = `You win! ${humanChoice} beats ${computerChoice}. Current scores: Computer: ${computerScore}, Human: ${humanScore}`;
+        resultDisplay.appendChild(document.createElement("hr"));
     }
 }
 

@@ -1,6 +1,8 @@
 const rock = "Rock";
 const paper = "Paper";
 const scissors = "Scissors";
+const userSelectionButtons = document.querySelectorAll(".user-selection-button");
+console.log(userSelectionButtons);
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 100);
@@ -46,9 +48,9 @@ function playRound(computerSelection, humanSelection) {
 
 
 function playGame() {
-    for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < 5; i++) {
         console.log(playRound(getComputerChoice(), getHumanChoice()));
-    }
+    // }
 }
 
 playGame();
